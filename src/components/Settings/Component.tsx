@@ -32,7 +32,7 @@ export default function SettingsCard({
                 <div className="h-fit w-fit font-display text-lg font-semibold ml-4">Settings</div>
             </nav>
             <div className="flex-1 w-full grid p-2 border-t-[1px] border-slate-200">
-                <div className="h-full w-full m-auto flex flex-col gap-4">
+                <div className="h-full w-full m-auto flex flex-col gap-4 max-h-72 overflow-y-scroll">
                     <ItemList className="mt-2">
                         <div className="flex-1 h-full flex-row flex gap-4 items-center text-md">
                             <div className="">Platform</div>
