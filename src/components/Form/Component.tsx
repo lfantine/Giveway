@@ -130,7 +130,7 @@ export default function GivewayForm({
                                     <img src={user.picture} className="rounded-full h-8 w-8 object-cover"></img>
                                     <div className="flex-1 h-fit font-normal">{user.username}</div>
                                 </div>
-                                <Button className="h-fit w-fit p-1 mr-2 bg-white group-hover:bg-black group-hover:text-white text-black">Choose</Button>
+                                <Button className="hidden group-hover:block h-fit w-fit p-1 mr-2 bg-black text-white">Choose</Button>
                             </div>
                         )
                     })}
