@@ -13,8 +13,10 @@ import {
 } from "@/components/ui/select"
 import { platform } from "os";
 import { cn } from "@/lib/utils";
+import { Input } from "../ui/input";
 
 export default function SettingsCard({
+    lastPost,
     setLastPost,
     platform,
     setPlatform,
@@ -33,30 +35,36 @@ export default function SettingsCard({
                 <div className="h-full w-full m-auto flex flex-col gap-4">
                     <ItemList className="mt-2">
                         <div className="flex-1 h-full flex-row flex gap-4 items-center text-md">
-                            <div className="">Platform : </div>
-                            <Select onValueChange={(value: PlatformType) => setPlatform(value)}>
-                                <SelectTrigger className="w-[180px]">
-                                    <SelectValue placeholder={platform.toString()} defaultValue={platform.toString()}/>
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="Instagram">Instagram</SelectItem>
-                                    <SelectItem value="X">X</SelectItem>
-                                    <SelectItem value="Facebook">Facebook</SelectItem>
-                                </SelectContent>
-                            </Select>
+                            <div className="">Platform</div>
                         </div>
+                        <Select onValueChange={(value: PlatformType) => setPlatform(value)}>
+                            <SelectTrigger className="w-[180px]">
+                                <SelectValue placeholder={platform.toString()} defaultValue={platform.toString()}/>
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="Instagram">Instagram</SelectItem>
+                                <SelectItem value="X">X</SelectItem>
+                                <SelectItem value="Facebook">Facebook</SelectItem>
+                            </SelectContent>
+                        </Select>
                     </ItemList>
                     <ItemList>
                         <div className="flex-1 h-full flex-row flex gap-4 items-center text-md">
-                            <Checkbox id="hLike" checked={hasLike} onCheckedChange={(v:boolean) => setHasLike(v)}/>
+                            <div className="flex flex-row items-center gap-4"><div className="h-fit w-fit">From post number</div><div className="h-fit w-fit text-slate-400"> (0 for lastest post) </div></div>
+                        </div>
+                        <Input type="number" defaultValue={lastPost} min="0" max="10" className="max-w-20"></Input>
+                    </ItemList>
+                    <ItemList>
+                        <div className="flex-1 h-full flex-row flex gap-4 items-center text-md">
                             <label className="text-md" htmlFor="hlike">Has LIKED the post</label>
                         </div>
+                        <Checkbox id="hLike" checked={hasLike} onCheckedChange={(v:boolean) => setHasLike(v)}/>
                     </ItemList>
                     <ItemList>
                         <div className="flex-1 h-full flex-row flex gap-4 items-center text-md">
-                            <Checkbox id="hComment" checked={hasComment} onCheckedChange={(v:boolean) => setHasComment(v)}/>
                             <label className="text-md" htmlFor="hComment">Has COMMENTED the post</label>
                         </div>
+                        <Checkbox id="hComment" checked={hasComment} onCheckedChange={(v:boolean) => setHasComment(v)}/>
                     </ItemList>
                 </div>
             </div>

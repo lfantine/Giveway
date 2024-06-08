@@ -23,7 +23,7 @@ export interface CardProps {
 export default function Home() {
   const [hLike, setHasLike] = useState(true);
   const [hComment, setHasComment] = useState(true);
-  const [lPost, setlastPost] = useState(1);
+  const [lPost, setlastPost] = useState(0);
   const [platform, setPlatform] = useState<PlatformType>('Instagram');
   return (
     <main className="min-h-screen bg-accent grid">

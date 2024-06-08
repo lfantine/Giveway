@@ -80,6 +80,7 @@ export default function GivewayForm({
     setPlatform,
     hasLike,
     hasComment,
+    lastPost,
 }: CardProps) {
     const [isLoading , setIsLoading] = useState(false);
     const [users, setUsers] = useState<userFound[]>([]);
@@ -87,6 +88,7 @@ export default function GivewayForm({
         console.log("platform = " + platform);
         console.log("has liked = " + hasLike.valueOf());
         console.log("has comment = " + hasComment.valueOf());
+        console.log("last post = " + lastPost);
         setIsLoading(true);
         setUsers(Object.values(userFile));
         setTimeout(() => setIsLoading(false), 2000);
